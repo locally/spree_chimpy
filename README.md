@@ -15,7 +15,7 @@ Makes it easy to integrate your [Spree][1] app with [MailChimp][2].
 
 ## Installing
 
-Add spree_chimpy to your `Gemfile`:
+Add spree_chimpy to your `Gemfile`
 
 ```ruby
 gem 'spree_chimpy'
@@ -24,7 +24,7 @@ gem 'spree_chimpy'
 Alternatively you can use the git repo directly:
 
 ```ruby
-gem 'spree_chimpy', github: 'futhr/spree_chimpy'
+gem 'spree_chimpy', github: 'futhr/spree_chimpy', branch: '2-0-stable'
 ```
 
 Run bundler
@@ -152,15 +152,7 @@ Starting point:
 * Ensure specs pass by running `bundle exec rspec spec`
 * Submit your pull request
 
-## Contributors
-
-- [@joshnuss](http://github.com/joshnuss)
-- [@bryanmtl](http://github.com/bryanmtl)
-- [@johanb](http://github.com/johanb)
-- [@iloveitaly](http://github.com/iloveitaly)
-- [@futhr](http://github.com/futhr)
-
-Copyright (c) 2013 Dynamo, released under the [New BSD License][7]
+Copyright (c) 2013 [Joshua Nussbaum][9] and [contributors][10], released under the [New BSD License][7]
 
 [1]: http://spreecommerce.com
 [2]: http://www.mailchimp.com
@@ -170,3 +162,5 @@ Copyright (c) 2013 Dynamo, released under the [New BSD License][7]
 [6]: https://github.com/futhr/spree_chimpy/issues
 [7]: https://github.com/futhr/spree_chimpy/blob/2-0-stable/LICENSE.md
 [8]: http://www.localeapp.com/projects/5151
+[9]: https://github.com/joshnuss
+[10]: https://github.com/futhr/spree_chimpy/contributors

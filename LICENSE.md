@@ -1,4 +1,4 @@
-Copyright (c) 2013 Joshua Nussbaum
+Copyright (c) 2013 Joshua Nussbaum and contributors.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without modification,
