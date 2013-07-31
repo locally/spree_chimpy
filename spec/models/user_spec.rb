@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Spree::User do
-  context "syncing with mail chimp" do
+  context 'syncing with mail chimp' do
     let(:subscription) { double(:subscription, needs_update?: true) }
 
     before do
@@ -10,26 +10,26 @@ describe Spree::User do
       @user = create(:user)
     end
 
-    it "submits after saving" do
+    it 'submits after saving' do
       subscription.should_receive(:resubscribe)
 
       @user.save
     end
 
-    it "submits after destroy" do
+    it 'submits after destroy' do
       subscription.should_receive(:unsubscribe)
 
       @user.destroy
     end
   end
 
-  context "defaults" do
-    it "subscribed by default" do
+  context 'defaults' do
+    it 'subscribed by default' do
       Spree::Chimpy::Config.subscribed_by_default = true
       Spree.user_class.new.subscribed.should be_true
     end
 
-    it "doesnt subscribe by default" do
+    it 'doesnt subscribe by default' do
       Spree::Chimpy::Config.subscribed_by_default = false
       Spree.user_class.new.subscribed.should be_false
     end

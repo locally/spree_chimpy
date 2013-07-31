@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe Spree::Order do
-  it "has a source" do
+  it 'has a source' do
     order = Spree::Order.new
     order.should respond_to(:source)
   end
 
-  context "notifying mail chimp" do
+  context 'notifying mail chimp' do
     before do
       Spree::Chimpy::Config.key = nil
 
@@ -16,17 +16,17 @@ describe Spree::Order do
       Spree::Chimpy::Config.key = '1234'
     end
 
-    it "doesnt update when order is not completed" do
+    it 'doesnt update when order is not completed' do
       Spree::Chimpy.should_not_receive(:enqueue)
       @not_completed_order.update!
     end
 
-    it "updates when order is completed" do
+    it 'updates when order is completed' do
       Spree::Chimpy.should_receive(:enqueue).with(:order, @completed_order)
       @completed_order.update!
     end
 
-    pending "sync when order is completed" do
+    pending 'sync when order is completed' do
       Spree::Chimpy.should_receive(:enqueue).with(:order, @completed_order).twice
       @completed_order.cancel!
     end

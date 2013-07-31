@@ -15,19 +15,16 @@ describe Spree::Chimpy::Interface::Orders do
     order.save
   end
 
-  it "adds an order" do
-    Spree::Config.site_name = "Super Store"
-    Spree::Chimpy::Config.store_id = "super-store"
-
+  it 'adds an order' do
+    Spree::Config.site_name = 'Super Store'
+    Spree::Chimpy::Config.store_id = 'super-store'
     api.should_receive(:ecomm_order_add) { |h| h[:order][:id].should == order.number }.and_return(true)
-
     interface.add(order).should be_true
   end
 
-  it "removes an order" do
-    Spree::Chimpy::Config.store_id = "super-store"
+  it 'removes an order' do
+    Spree::Chimpy::Config.store_id = 'super-store'
     api.should_receive(:ecomm_order_del).with({store_id: 'super-store', order_id: order.number, throws_exceptions: false}).and_return(true)
-
     interface.remove(order).should be_true
   end
 end
