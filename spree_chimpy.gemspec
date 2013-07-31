@@ -3,7 +3,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_chimpy'
   s.version     = '1.3.2'
-  s.summary     = 'MailChimp/Spree integration using the Hominid gem'
+  s.summary     = 'MailChimp/Spree integration using the mailchimp gem'
   s.description = s.summary
   s.required_ruby_version = '>= 1.9.3'
 
@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rspec-rails', '~> 2.13'
   s.add_development_dependency 'capybara', '~> 2.1.0'
-  s.add_development_dependency 'capybara-webkit', '~> 1.0.0'
+  s.add_development_dependency 'selenium-webdriver', '~> 2.33.0'
   s.add_development_dependency 'factory_girl', '~> 4.2'
   s.add_development_dependency 'shoulda-matchers', '~> 2.2'
   s.add_development_dependency 'sqlite3', '~> 1.3.7'
@@ -30,10 +30,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'database_cleaner'
   s.add_development_dependency 'fuubar', '>= 0.0.1'
   s.add_development_dependency 'i18n-spec', '~> 0.4.0'
-  s.add_development_dependency 'coffee-rails', '~> 3.2.2'
-  s.add_development_dependency 'sass-rails', '~> 3.2.6'
+  s.add_development_dependency 'coffee-rails', '3.2.2'
+  s.add_development_dependency 'sass-rails', '3.2.6'
   s.add_development_dependency 'ffaker'
   s.add_development_dependency 'guard-rspec'
+  s.add_development_dependency 'launchy'
   s.add_development_dependency 'coveralls'
   s.add_development_dependency 'pry-rails'
 end

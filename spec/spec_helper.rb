@@ -21,7 +21,6 @@ require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 require 'rspec/rails'
 require 'i18n-spec'
 require 'capybara/rspec'
-require 'capybara/webkit'
 require 'shoulda-matchers'
 require 'database_cleaner'
 require 'ffaker'
@@ -59,6 +58,4 @@ RSpec.configure do |config|
   config.after do
     DatabaseCleaner.clean
   end
-
-  Capybara.javascript_driver = :webkit
 end
