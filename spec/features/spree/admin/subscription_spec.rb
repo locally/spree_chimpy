@@ -1,24 +1,65 @@
 require 'spec_helper'
 
-feature "Chimpy Admin", js: true do
+feature 'Chimpy Admin', js: true do
   stub_authorization!
 
-  let(:user) { create(:user) }
+  given(:user) { create(:user) }
 
-  # test so it has been add "Yes" or "No"
-
-  scenario "" do
-    # check so it has been add "Yes"
+  background do
+    visit spree.admin_path
   end
 
-  # test form
+  scenario 'new user subscription with subscription checked' do
+    click_link 'Users'
+    click_link 'New User'
 
-  scenario "" do
-    # create user
-    # access form
-    # fill in checkbox
-    # submit
-    # check flash
-    # check so user has "yes"
+    fill_in_subscription user
+
+    check 'user_subscribed'
+    click_button 'Create'
+
+    expect(current_path).to eq '/admin/users'
+    expect(page).to have_content 'API ACCESS'
+    expect(page).to have_content 'NO KEY'
+
+    find_button('Generate API key').click
+
+    fill_in_subscription user
+
+    check 'user_subscribed'
+    click_button 'Update'
+
+    expect(Spree::User.last.subscribed).to be_true
+  end
+
+  scenario 'new user subscription with subscription un-checked' do
+    click_link 'Users'
+    click_link 'New User'
+
+    fill_in_subscription user
+
+    click_button 'Create'
+
+    current_path.should eq '/admin/users'
+    expect(page).to have_content 'API ACCESS'
+    expect(page).to have_content 'NO KEY'
+
+    find_button('Generate API key').click
+
+    fill_in_subscription user
+
+    click_button 'Update'
+
+    expect(Spree::User.last.subscribed).to be_false
+  end
+
+  private
+
+  def fill_in_subscription(user)
+    expect(page).to have_content 'SUBSCRIBED TO NEWSLETTER'
+
+    fill_in 'user_email', with: "new-#{user.email}"
+    fill_in 'user_password', with: 'test123456'
+    fill_in 'user_password_confirmation', with: 'test123456'
   end
 end
