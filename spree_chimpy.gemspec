@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'shoulda-matchers', '~> 2.2'
   s.add_development_dependency 'sqlite3', '~> 1.3.7'
   s.add_development_dependency 'simplecov', '~> 0.7.1'
-  s.add_development_dependency 'database_cleaner'
+  s.add_development_dependency 'database_cleaner', '~> 1.0.1'
   s.add_development_dependency 'fuubar', '>= 0.0.1'
   s.add_development_dependency 'i18n-spec', '~> 0.4.0'
   s.add_development_dependency 'coffee-rails', '3.2.2'
