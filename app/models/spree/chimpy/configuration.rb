@@ -1,5 +1,5 @@
-module Spree::Chimpy
-  class Configuration < Spree::Preferences::Configuration
+module Spree
+  class Chimpy::Configuration < Preferences::Configuration
     preference :store_id,              :string,  default: 'spree'
     preference :subscribed_by_default, :boolean, default: false
     preference :key,                   :string
